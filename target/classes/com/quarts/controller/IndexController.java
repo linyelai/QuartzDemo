@@ -1,6 +1,6 @@
 package com.quarts.controller;
 
-import com.quarts.job.MyJob;
+import com.quarts.job.SendFaxJob;
 import com.quarts.service.QuartzService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,7 +27,7 @@ public class IndexController {
 
     @PostMapping("/addJob")
     public void addJob() throws  Exception{
-        quartzService.addJob(MyJob.class,"job1"+System.currentTimeMillis(),"job-group-1",30,3,null);
+        quartzService.addJob(SendFaxJob.class,"job1"+System.currentTimeMillis(),"job-group-1",30,3,null);
 
     }
 
@@ -36,7 +36,7 @@ public class IndexController {
 
         long current = System.currentTimeMillis()+1000*60;
         Date now = new Date(current);
-        quartzService.addJob(MyJob.class,"job1"+System.currentTimeMillis(),"job-group-1",now,null);
+        quartzService.addJob(SendFaxJob.class,"job1"+System.currentTimeMillis(),"job-group-1",now,null);
     }
 
 

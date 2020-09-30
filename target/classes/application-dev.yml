@@ -1,5 +1,0 @@
-server:
-  port: 9999
-logging:
-  level:
-    root: info
